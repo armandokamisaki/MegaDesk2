@@ -23,5 +23,11 @@ namespace Mega_Desk_Kamisaki
             viewMainMenu.Show();
             Close();
         }
+
+        private void SearchQuotes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainMenu main = this.Tag as mainMenu;
+            main.Show();
+        }
     }
 }

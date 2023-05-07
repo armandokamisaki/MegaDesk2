@@ -280,6 +280,7 @@
             this.Controls.Add(this.deskLabel);
             this.Name = "AddQuote";
             this.Text = "AddQuote";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerValue)).EndInit();

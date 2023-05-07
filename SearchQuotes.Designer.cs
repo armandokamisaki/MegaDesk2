@@ -85,6 +85,7 @@
             this.Controls.Add(this.searchLabel);
             this.Name = "SearchQuotes";
             this.Text = "Search Quotes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchQuotes_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

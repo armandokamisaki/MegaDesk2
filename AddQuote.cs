@@ -24,6 +24,10 @@ namespace Mega_Desk_Kamisaki
             Close();
         }
 
-       
+        private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainMenu main = this.Tag as mainMenu;
+            main.Show();
+        }
     }
 }

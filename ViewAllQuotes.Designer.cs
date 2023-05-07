@@ -54,6 +54,7 @@
             this.Controls.Add(this.cancelButton);
             this.Name = "ViewAllQuotes";
             this.Text = "View Quotes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewAllQuotes_FormClosed);
             this.ResumeLayout(false);
 
         }
