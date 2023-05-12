@@ -20,15 +20,15 @@ namespace Mega_Desk_Kamisaki
             this.material = material;
         }
 
-        public int getWidth() { return width; }
-        public int getDepth() { return depth; }
-        public int getDrawersNum() { return drawersNum; }
-        public DesktopMaterial getMaterial() { return material; }
+        public int GetWidth() { return width; }
+        public int GetDepth() { return depth; }
+        public int GetDrawersNum() { return drawersNum; }
+        public DesktopMaterial GetMaterial() { return material; }
 
-        public void setWidth(int width) { this.width = width; }
-        public void setDepth(int  depth) { this.depth = depth; }
-        public void setDrawersNum(int drawersNum) { this.drawersNum = drawersNum; }
-        public void setMaterial(DesktopMaterial material) { this.material = material; }
+        public void SetWidth(int width) { this.width = width; }
+        public void SetDepth(int  depth) { this.depth = depth; }
+        public void SetDrawersNum(int drawersNum) { this.drawersNum = drawersNum; }
+        public void SetMaterial(DesktopMaterial material) { this.material = material; }
 
     }
     enum DesktopMaterial

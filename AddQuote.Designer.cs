@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.deskLabel = new System.Windows.Forms.Label();
             this.widthLabel = new System.Windows.Forms.Label();
             this.depthLabel = new System.Windows.Forms.Label();
@@ -39,14 +40,18 @@
             this.materialList = new System.Windows.Forms.ComboBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.orderLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbRushOrder = new System.Windows.Forms.ComboBox();
             this.newQuoteLabel = new System.Windows.Forms.Label();
             this.getQuoteButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.nameText = new System.Windows.Forms.TextBox();
+            this.addQuoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.deskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addQuoteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deskBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // deskLabel
@@ -166,12 +171,6 @@
             this.materialList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.materialList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialList.FormattingEnabled = true;
-            this.materialList.Items.AddRange(new object[] {
-            "Oak",
-            "Laminate",
-            "Pine",
-            "Rosewood",
-            "Veneer"});
             this.materialList.Location = new System.Drawing.Point(558, 210);
             this.materialList.Name = "materialList";
             this.materialList.Size = new System.Drawing.Size(168, 30);
@@ -197,20 +196,20 @@
             this.orderLabel.TabIndex = 11;
             this.orderLabel.Text = "Rush order";
             // 
-            // comboBox1
+            // cmbRushOrder
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "3 days",
-            "5 days",
-            "7 days",
-            "14 days (Normal)"});
-            this.comboBox1.Location = new System.Drawing.Point(558, 256);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 30);
-            this.comboBox1.TabIndex = 12;
+            this.cmbRushOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRushOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRushOrder.FormattingEnabled = true;
+            this.cmbRushOrder.Items.AddRange(new object[] {
+            "3 ",
+            "5",
+            "7",
+            "0"});
+            this.cmbRushOrder.Location = new System.Drawing.Point(558, 256);
+            this.cmbRushOrder.Name = "cmbRushOrder";
+            this.cmbRushOrder.Size = new System.Drawing.Size(168, 30);
+            this.cmbRushOrder.TabIndex = 12;
             // 
             // newQuoteLabel
             // 
@@ -233,6 +232,7 @@
             this.getQuoteButton.TabIndex = 14;
             this.getQuoteButton.Text = "Get Quote";
             this.getQuoteButton.UseVisualStyleBackColor = false;
+            this.getQuoteButton.Click += new System.EventHandler(this.getQuoteButton_Click);
             // 
             // cancelButton
             // 
@@ -256,6 +256,14 @@
             this.nameText.Size = new System.Drawing.Size(363, 28);
             this.nameText.TabIndex = 16;
             // 
+            // addQuoteBindingSource
+            // 
+            this.addQuoteBindingSource.DataSource = typeof(Mega_Desk_Kamisaki.AddQuote);
+            // 
+            // deskBindingSource
+            // 
+            this.deskBindingSource.DataSource = typeof(Mega_Desk_Kamisaki.Desk);
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -266,7 +274,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.getQuoteButton);
             this.Controls.Add(this.newQuoteLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbRushOrder);
             this.Controls.Add(this.orderLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.materialList);
@@ -284,6 +292,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addQuoteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deskBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,10 +312,12 @@
         private System.Windows.Forms.ComboBox materialList;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label orderLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbRushOrder;
         private System.Windows.Forms.Label newQuoteLabel;
         private System.Windows.Forms.Button getQuoteButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox nameText;
+        private System.Windows.Forms.BindingSource addQuoteBindingSource;
+        private System.Windows.Forms.BindingSource deskBindingSource;
     }
 }

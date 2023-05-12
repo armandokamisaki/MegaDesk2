@@ -102,6 +102,16 @@
     <EmbeddedResource Include="ViewAllQuotes.resx">
       <DependentUpon>ViewAllQuotes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\AddQuote.datasource" />
+    <None Include="Properties\DataSources\Desk.datasource" />
+    <None Include="Properties\DataSources\DeskQuote.datasource" />
+    <None Include="Properties\DataSources\DisplayQuote.datasource" />
+    <None Include="Properties\DataSources\mainMenu.datasource" />
+    <None Include="Properties\DataSources\Mega_Desk_Kamisaki.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Mega_Desk_Kamisaki.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\SearchQuotes.datasource" />
+    <None Include="Properties\DataSources\ViewAllQuotes.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
