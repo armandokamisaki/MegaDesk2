@@ -32,6 +32,8 @@ namespace Mega_Desk_Kamisaki
             }
         }
 
+
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             mainMenu viewMainMenu = (mainMenu)Tag;
@@ -59,9 +61,20 @@ namespace Mega_Desk_Kamisaki
 
             quotes.Add(quote);
 
-            DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
-            viewDisplayQuote.Show();
+            //DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
+            // viewDisplayQuote.Show();
+            //Close();
+            //DeskQuote quote = new DeskQuote(width, depth, drawer, material, name, rushOrder);
+
+            //quote.Add(quote);
+
+
+
+            DisplayQuote form = new DisplayQuote();
+            form.Tag = this.Tag;
+            form.Show();
             Close();
+          // displayQuote form = new displayQuote(quote) 
         }
 
         private void materialList_SelectedIndexChanged(object sender, EventArgs e)
