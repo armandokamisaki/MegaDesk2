@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,16 @@ namespace Mega_Desk_Kamisaki
 {
     public partial class AddQuote : Form
     {
+        public static AddQuote instance;
         List<DesktopMaterial> materials;
-        List<DeskQuote> quotes;
+        public DeskQuote quote;
+
         public AddQuote()
         {
             InitializeComponent();
-
-            List<DeskQuote> quotes = new List<DeskQuote>();
-
+            instance = this;
+          
+           
             List<DesktopMaterial> materials = new List<DesktopMaterial>();
             materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
             foreach (DesktopMaterial material in materials)
@@ -45,29 +48,57 @@ namespace Mega_Desk_Kamisaki
             main.Show();
         }
 
-        private void getQuoteButton_Click(object sender, EventArgs e)
+        public void getQuoteButton_Click(object sender, EventArgs e)
         {
-            int width = Convert.ToInt32(widthValue.Value);
-            int depth = Convert.ToInt32(depthValue.Value);
-            int drawer = Convert.ToInt32(drawerValue.Value);
+            Desk desk = new Desk();
+            desk.Width = Convert.ToInt32(widthValue.Value);
+            desk.Depth = Convert.ToInt32(depthValue.Value);
+            desk.DrawersNum = Convert.ToInt32(drawerValue.Value);
+
+            //Set value for number od drawers
+            switch(desk.DrawersNum)
+            {
+                case 0:
+                    desk.DrawersNum = 3;
+                    break;
+                case 1:
+                    desk.DrawersNum = 5;
+                    break;
+                case 2:
+                    desk.DrawersNum = 7;
+                    break;
+                default:
+                    desk.DrawersNum = 0;
+                    break;
+            }
+
             materialList.DataSource = Enum.GetValues(typeof(DesktopMaterial));
-            DesktopMaterial material = (DesktopMaterial)materialList.SelectedValue;
-            string name = nameText.Text;
-            int rushOrder = cmbRushOrder.SelectedIndex;
+            desk.DeskMaterial = (DesktopMaterial)materialList.SelectedValue;
 
-            DeskQuote quote = new DeskQuote(width, depth, drawer, material, name, rushOrder);
+            DeskQuote quote = new DeskQuote();
+            quote.CustomerName = nameText.Text;
+            quote.RushPrice = cmbRushOrder.SelectedIndex;
+            quote.TotalPrice = quote.CalculateTotalPrice(desk.Width, desk.Depth, desk.DrawersNum, desk.DeskMaterial, quote.RushPrice);
+            quote.Desk = desk;
 
+           
+
+            ArrayList quotes = new ArrayList();
             quotes.Add(quote);
 
-            DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
-            viewDisplayQuote.Show();
-            Close();
+            //Opens the form DisplayQuote
+            DisplayQuote viewDisplayQuote = new DisplayQuote(quote); 
+            viewDisplayQuote.Tag = this;
+            viewDisplayQuote.Show(this);    
+           
+            Hide();
+
         }
 
         private void materialList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
+        {          
             
         }
+        
     }
 }
