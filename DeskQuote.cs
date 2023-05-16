@@ -7,48 +7,32 @@ using System.Threading.Tasks;
 
 namespace Mega_Desk_Kamisaki
 {
-    internal class DeskQuote
+    public class DeskQuote
     {
+        //Constants
         public const int BASE_PRICE = 200;
         public const int DRAWER_VALUE = 50;
 
-        Desk desk;
-        private string customerName;
-        private int rushOrder;
-        double totalPrice;
-        private string date;
-        public DeskQuote(int width, int depth, int drawersNum, DesktopMaterial material, string customerName, int rushOrder) 
+        //Properties
+        public Desk Desk { get; set; }
+       
+        public string CustomerName { get; set; }
+        public int RushPrice { get; set; }
+        public int TotalPrice { get; set; }
+        public string Date { get; set; }
+        
+        
+
+        
+        public int CalculateTotalPrice(int width, int depth, int drawersNum, DesktopMaterial material, int rushPrice)
         {
-            //Create a new Desk object
-            Desk desk = new Desk(width, depth, drawersNum, material);
-            this.customerName = customerName;
-            this.rushOrder = rushOrder;
-            totalPrice = CalculateTotalPrice();
-            date = DateTime.Now.ToString("dd MMMM yyyy");
-        }
 
-        public string GetCustomerName() { return customerName; }
-        public int GetRushOrder() {  return rushOrder; }
-        public double GetTotalPrice() { return totalPrice; } 
-        public string GetDate() { return date; }
-
-        public void SetCustomerName(string customerName) { this.customerName = customerName; }
-        public void SetRushOrder(int rushOrder) { this.rushOrder = rushOrder; }
-        public void SetDate(string date) { this.date = date; }
-
-        public double CalculateTotalPrice()
-        {
             
-            int width = desk.GetWidth();
-            int depth = desk.GetDepth();
-            int drawersNum = desk.GetDrawersNum();
-            DesktopMaterial material = desk.GetMaterial();
-
             int deskPrice = CalculateDeskPrice(width, depth);
             int drawersPrice = CalculateDrawersPrice(drawersNum);
-            int materialPrice = (int)desk.GetMaterial();
-            int rushOrderPrice = CalculateRushOrderPrice(width, depth, rushOrder);
-            double totalPrice = deskPrice + drawersPrice + materialPrice + rushOrderPrice; 
+            int materialPrice = (int)material;
+            int rushOrderPrice = CalculateRushOrderPrice(width, depth, rushPrice);
+            int totalPrice = deskPrice + drawersPrice + materialPrice + rushOrderPrice; 
             return totalPrice;                        
         }
 
@@ -161,6 +145,12 @@ namespace Mega_Desk_Kamisaki
                     return rushOrderPrice;                    
             }    
 
+        }
+        //Return oject's information
+        public override string ToString() { 
+            return "Customer Name: " + CustomerName + "\r\n Width: " + this.Desk.Width + "\r\n Depth: " + this.Desk.Depth + "\r\n Number of drawers: " + this.Desk.DrawersNum +
+                "\r\n Surface Material: " + this.Desk.DeskMaterial.ToString() + "\r\n Rush Order (days): " +
+                this.RushPrice + "\r\n Total Price: $" + this.TotalPrice.ToString("N2") + "\r\n";
         }
 
     }

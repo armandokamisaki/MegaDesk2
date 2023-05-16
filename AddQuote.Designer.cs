@@ -203,9 +203,9 @@
             this.cmbRushOrder.FormattingEnabled = true;
             this.cmbRushOrder.Items.AddRange(new object[] {
             "3 ",
-            "5",
-            "7",
-            "0"});
+            "5 ",
+            "7 ",
+            "0 "});
             this.cmbRushOrder.Location = new System.Drawing.Point(558, 256);
             this.cmbRushOrder.Name = "cmbRushOrder";
             this.cmbRushOrder.Size = new System.Drawing.Size(168, 30);
@@ -316,8 +316,8 @@
         private System.Windows.Forms.Label newQuoteLabel;
         private System.Windows.Forms.Button getQuoteButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.BindingSource addQuoteBindingSource;
         private System.Windows.Forms.BindingSource deskBindingSource;
+        public System.Windows.Forms.TextBox nameText;
     }
 }

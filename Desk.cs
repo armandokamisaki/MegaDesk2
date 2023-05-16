@@ -6,32 +6,18 @@ using System.Threading.Tasks;
 
 namespace Mega_Desk_Kamisaki
 {
-    internal class Desk
+    public class Desk
     {
-        private int width;
-        private int depth;
-        private int drawersNum;
-        DesktopMaterial material;
+        
+        //Properties
+        public int Width { get; set; }
+        public int Depth { get; set; }
+        public int DrawersNum { get; set; }
 
-        public Desk(int width, int depth, int drawersNum, DesktopMaterial material) {
-            this.width = width;
-            this.depth = depth;
-            this.drawersNum = drawersNum;
-            this.material = material;
-        }
-
-        public int GetWidth() { return width; }
-        public int GetDepth() { return depth; }
-        public int GetDrawersNum() { return drawersNum; }
-        public DesktopMaterial GetMaterial() { return material; }
-
-        public void SetWidth(int width) { this.width = width; }
-        public void SetDepth(int  depth) { this.depth = depth; }
-        public void SetDrawersNum(int drawersNum) { this.drawersNum = drawersNum; }
-        public void SetMaterial(DesktopMaterial material) { this.material = material; }
-
+        public DesktopMaterial DeskMaterial { get; set; }
+        
     }
-    enum DesktopMaterial
+    public enum DesktopMaterial
     {
         Oak=200,
         Laminate=100,
@@ -39,4 +25,7 @@ namespace Mega_Desk_Kamisaki
         Rosewwod=300,
         Veneer=125
     }
+
+    
+
 }

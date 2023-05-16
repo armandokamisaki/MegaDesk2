@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,30 @@ namespace Mega_Desk_Kamisaki
 {
     public partial class DisplayQuote : Form
     {
-        public DisplayQuote()
+      
+        public DeskQuote quote;
+        public DisplayQuote(DeskQuote quotes)
         {
             InitializeComponent();
+        
+            this.quote = quotes;
+            
+            //Display deskquote at the TextBox
+            TextDisplay.Text = quote.ToString();
+        }
+
+        
+
+        private void DisplayQuote_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            mainMenu viewMainMenu = (mainMenu)Tag;
+            viewMainMenu.Show();
+            Close();
         }
     }
 }
