@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Mega_Desk_Kamisaki
 {
-    public partial class mainMenu : Form
+    public partial class MainMenu : Form
     {
-        public mainMenu()
+        public MainMenu()
         {
             InitializeComponent();
         }

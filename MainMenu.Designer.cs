@@ -1,6 +1,6 @@
 ﻿namespace Mega_Desk_Kamisaki
 {
-    partial class mainMenu
+    partial class MainMenu
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -91,7 +91,7 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // mainMenu
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,7 +101,7 @@
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.viewButton);
             this.Controls.Add(this.addButton);
-            this.Name = "mainMenu";
+            this.Name = "MainMenu";
             this.Text = "Mega Desk Menu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

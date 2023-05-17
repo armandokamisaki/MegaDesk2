@@ -32,11 +32,11 @@ namespace Mega_Desk_Kamisaki
            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+       
+        private void btnmenu_Click(object sender, EventArgs e)
         {
-            mainMenu viewMainMenu = (mainMenu)Tag;
+            MainMenu viewMainMenu = this.Tag as MainMenu;
             viewMainMenu.Show();
-            Close();
         }
-    }
+    }   
 }

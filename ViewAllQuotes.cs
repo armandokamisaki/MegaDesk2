@@ -19,14 +19,14 @@ namespace Mega_Desk_Kamisaki
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            mainMenu viewMainMenu = (mainMenu)Tag;
+            MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
             Close();
         }
 
         private void ViewAllQuotes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mainMenu main = this.Tag as mainMenu;
+            MainMenu main = this.Tag as MainMenu;
             main.Show();
         }
     }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,52 +38,37 @@ namespace Mega_Desk_Kamisaki
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            mainMenu viewMainMenu = (mainMenu)Tag;
+            MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
             Close();
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mainMenu main = this.Tag as mainMenu;
+            MainMenu main = this.Tag as MainMenu;
             main.Show();
         }
 
         public void getQuoteButton_Click(object sender, EventArgs e)
         {
+            //Creat a desk object and set the value for the properties
             Desk desk = new Desk();
             desk.Width = Convert.ToInt32(widthValue.Value);
             desk.Depth = Convert.ToInt32(depthValue.Value);
-            desk.DrawersNum = Convert.ToInt32(drawerValue.Value);
-
-            //Set value for number od drawers
-            switch(desk.DrawersNum)
-            {
-                case 0:
-                    desk.DrawersNum = 3;
-                    break;
-                case 1:
-                    desk.DrawersNum = 5;
-                    break;
-                case 2:
-                    desk.DrawersNum = 7;
-                    break;
-                default:
-                    desk.DrawersNum = 0;
-                    break;
-            }
-
+            desk.DrawersNum = Convert.ToInt32(drawerValue.Value);                
+            //Get the value for Desktop material
             materialList.DataSource = Enum.GetValues(typeof(DesktopMaterial));
             desk.DeskMaterial = (DesktopMaterial)materialList.SelectedValue;
 
+            //Create a DeskQuote object and set the value for the properties
             DeskQuote quote = new DeskQuote();
             quote.CustomerName = nameText.Text;
-            quote.RushPrice = cmbRushOrder.SelectedIndex;
+            quote.RushPrice = Convert.ToInt32(cmbRushOrder.SelectedIndex);
+            quote.RushPrice = CalculateRushOrder(quote.RushPrice);            
             quote.TotalPrice = quote.CalculateTotalPrice(desk.Width, desk.Depth, desk.DrawersNum, desk.DeskMaterial, quote.RushPrice);
             quote.Desk = desk;
-
-           
-
+                       
+            //Create an array and add the DeskQuote object to it
             ArrayList quotes = new ArrayList();
             quotes.Add(quote);
 
@@ -98,6 +84,28 @@ namespace Mega_Desk_Kamisaki
         private void materialList_SelectedIndexChanged(object sender, EventArgs e)
         {          
             
+        }
+        public int CalculateRushOrder(int rushPrice)
+        {
+            //Set value for number of days for rush order
+            int days = 0;
+            switch (rushPrice)
+            {
+                case 0:
+                    days = 3;
+                    break;
+                case 1:
+                    days = 5;
+                    break;
+                case 2:
+                     days = 7;
+                    break;
+                default:
+                    days = 0;       
+                    break;
+            }
+            return days;
+
         }
         
     }
