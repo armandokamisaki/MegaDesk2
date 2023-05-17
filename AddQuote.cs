@@ -36,6 +36,8 @@ namespace Mega_Desk_Kamisaki
             }
         }
 
+
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             MainMenu viewMainMenu = (MainMenu)Tag;
@@ -72,13 +74,9 @@ namespace Mega_Desk_Kamisaki
             ArrayList quotes = new ArrayList();
             quotes.Add(quote);
 
-            //Opens the form DisplayQuote
-            DisplayQuote viewDisplayQuote = new DisplayQuote(quote); 
-            viewDisplayQuote.Tag = this;
-            viewDisplayQuote.Show(this);    
-           
-            Hide();
-
+            DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
+            viewDisplayQuote.Show();
+            Close();
         }
 
         private void materialList_SelectedIndexChanged(object sender, EventArgs e)
