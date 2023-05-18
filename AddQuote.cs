@@ -65,6 +65,7 @@ namespace Mega_Desk_Kamisaki
             //Create a DeskQuote object and set the value for the properties
             DeskQuote quote = new DeskQuote();
             quote.CustomerName = nameText.Text;
+            quote.date = DateTime.Now.ToString();
             quote.RushPrice = Convert.ToInt32(cmbRushOrder.SelectedIndex);
             quote.RushPrice = CalculateRushOrder(quote.RushPrice);            
             quote.TotalPrice = quote.CalculateTotalPrice(desk.Width, desk.Depth, desk.DrawersNum, desk.DeskMaterial, quote.RushPrice);
