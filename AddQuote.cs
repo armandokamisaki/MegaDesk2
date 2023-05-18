@@ -16,7 +16,7 @@ namespace Mega_Desk_Kamisaki
     public partial class AddQuote : Form
     {
         public static AddQuote instance;
-        List<DesktopMaterial> materials;
+       
         public DeskQuote quote;
 
         public AddQuote()
@@ -74,9 +74,10 @@ namespace Mega_Desk_Kamisaki
             ArrayList quotes = new ArrayList();
             quotes.Add(quote);
 
-            DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
-            viewDisplayQuote.Show();
-            Close();
+            //DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
+            DisplayQuote display = new DisplayQuote(quote);
+            display.Show();
+            //this.Close();
         }
 
         private void materialList_SelectedIndexChanged(object sender, EventArgs e)

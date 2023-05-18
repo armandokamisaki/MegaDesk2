@@ -13,30 +13,27 @@ namespace Mega_Desk_Kamisaki
 {
     public partial class DisplayQuote : Form
     {
-      
+              
         public DeskQuote quote;
         public DisplayQuote(DeskQuote quotes)
         {
             InitializeComponent();
-        
+
+                    
             this.quote = quotes;
             
             //Display deskquote at the TextBox
             TextDisplay.Text = quote.ToString();
         }
-
-        
-
-        private void DisplayQuote_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-       
+                       
         private void btnmenu_Click(object sender, EventArgs e)
         {
-            MainMenu viewMainMenu = this.Tag as MainMenu;
-            viewMainMenu.Show();
+            Application.OpenForms[2].Close();
+        }
+
+        private void DisplayQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[1].Close();
         }
     }   
 }

@@ -64,7 +64,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "DisplayQuote";
             this.Text = "DisplayQuote";
-            this.Load += new System.EventHandler(this.DisplayQuote_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisplayQuote_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

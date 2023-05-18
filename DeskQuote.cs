@@ -110,7 +110,7 @@ namespace Mega_Desk_Kamisaki
                         rushOrderPrice = int.Parse(price[0, 0]);
                     }
                     return rushOrderPrice;
-                    break;
+                    
                 case (5):
                     if (width * depth > 2000)
                     {
@@ -125,7 +125,7 @@ namespace Mega_Desk_Kamisaki
                         rushOrderPrice = int.Parse(price[1, 0]);
                     }
                     return rushOrderPrice;
-                    break;
+                 
                 case (7):
                     if (width * depth > 2000)
                     {
@@ -140,7 +140,7 @@ namespace Mega_Desk_Kamisaki
                         rushOrderPrice = int.Parse(price[2, 0]);
                     }
                     return rushOrderPrice;
-                    break;
+                   
                 default:
                     return rushOrderPrice;                    
             }    
